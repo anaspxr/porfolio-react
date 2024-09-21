@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 
+const menuItems = [
+  { id: "about", name: "About" },
+  { id: "experiences", name: "Experiences" },
+  { id: "skills", name: "Skills" },
+  { id: "works", name: "Works" },
+  { id: "contact", name: "Contact" },
+];
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const navHeight = 50; // Adjust this based on your navbar height
 
   useEffect(() => {
     function handleScroll() {
-      if (window.scrollY > 50) {
+      console.log(window.scrollY);
+      if (window.scrollY > 100) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -15,68 +23,45 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
-    const handleLinkClick = (event: Event) => {
-      const targetId = (event.target as HTMLAnchorElement)
-        .getAttribute("href")!
-        .slice(1); // Get the ID without '#'
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        event.preventDefault(); // Prevent default anchor behavior
-        window.scrollTo({
-          top: targetElement.offsetTop - navHeight + 5, // Adjust scroll position
-          behavior: "smooth", // Smooth scrolling
-        });
-      }
-    };
-
-    const anchorLinks = document.querySelectorAll(
-      'a[href*="#"]:not([href="#"])'
-    );
-    anchorLinks.forEach((link) => {
-      link.addEventListener("click", handleLinkClick);
-    });
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      anchorLinks.forEach((link) => {
-        link.removeEventListener("click", handleLinkClick);
-      });
     };
   }, []);
 
   return (
     <div
-      className={`flex justify-between bg-transparent fixed top-0 w-full py-12 px-28 z-20 ${
-        !isScrolled && "text-white"
+      className={`flex justify-between bg-transparent fixed top-0 w-full  px-28 z-20 transition-[padding,background] duration-500  ${
+        !isScrolled ? "text-white py-10" : "bg-black py-6 bg-opacity-95"
       }`}>
       <p
         onClick={() => {
-          window.scrollX = 0;
+          window.scrollTo({ top: 0, behavior: "smooth" });
           window.history.pushState({}, "", "/");
         }}
         className="text-3xl font-semibold cursor-pointer">
         ANAS
       </p>
-      <ul className="flex gap-8 text-lg uppercase font-semibold">
-        <li>
-          <a href="#home">Home</a>
+      <ul className="flex gap-8 text-lg uppercase font-semibold cursor-pointer">
+        <li
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            window.history.pushState({}, "", "/");
+          }}>
+          Home
         </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#experiences">Experiences</a>
-        </li>
-        <li>
-          <a href="#skills">Skills</a>
-        </li>
-        <li>
-          <a href="#works">Works</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
+        {menuItems.map((item) => (
+          <li
+            className={`relative hover:text-gray-400 cursor-pointer transition-all
+              ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute 
+              before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] 
+              before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 
+              after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] 
+              after:bottom-0 after:right-[50%]
+              `}
+            key={item.id}>
+            <a href={`#${item.id}`}>{item.name}</a>
+          </li>
+        ))}
       </ul>
     </div>
   );

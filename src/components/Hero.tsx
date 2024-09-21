@@ -6,12 +6,12 @@ export default function Hero() {
     <>
       <div className="bg-black absolute top-0 left-0 p-0 h-full w-full opacity-50 -z-10"></div>{" "}
       <div
-        className="bg-no-repeat bg-fixed bg-cover bg-center h-screen fixed top-0 left-0 w-full -z-20"
+        className="bg-no-repeat bg-fixed bg-cover bg-center h-screen absolute top-0 left-0 w-full -z-20"
         style={{
           backgroundImage: "url(cover-photo.jpeg)",
         }}></div>
       {/* dark overlay */}
-      <div className="flex justify-center flex-col items-center h-screen     gap-8">
+      <div className="flex justify-center flex-col items-center h-screen gap-8">
         <h1 className="text-7xl text-white font-semibold">
           I'm <span className="text-violet-200 font-bold">ANAS</span>
         </h1>
@@ -29,8 +29,20 @@ export default function Hero() {
           loop
         />
         <div className="flex justify-center items-center gap-4">
-          <ShineButton>About Me</ShineButton>
-          <ShineButton>Contact Me</ShineButton>
+          <ShineButton>
+            <a
+              className="inline-flex items-center justify-center h-full w-full"
+              href="#about">
+              About Me
+            </a>{" "}
+          </ShineButton>
+          <ShineButton>
+            <a
+              className="inline-flex items-center justify-center h-full w-full"
+              href="#contact">
+              Contact Me
+            </a>
+          </ShineButton>
         </div>
       </div>
     </>
