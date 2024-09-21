@@ -47,7 +47,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`flex justify-between bg-transparent fixed top-0 w-full py-12 px-28 ${
+      className={`flex justify-between bg-transparent fixed top-0 w-full py-12 px-28 z-20 ${
         !isScrolled && "text-white"
       }`}>
       <p
