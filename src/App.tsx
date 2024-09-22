@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 
 import "./App.css";
 import Hero from "./components/Hero";
@@ -6,7 +6,7 @@ import SectionCard from "./components/SectionCard";
 import { useEffect } from "react";
 
 function App() {
-  const navHeight = 50;
+  const navHeight = 150;
 
   useEffect(() => {
     //? handle anchor link click

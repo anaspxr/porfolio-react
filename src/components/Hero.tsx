@@ -3,10 +3,10 @@ import ShineButton from "./ShineButton";
 
 export default function Hero() {
   return (
-    <>
-      <div className="bg-black absolute top-0 left-0 p-0 h-full w-full opacity-50 -z-10"></div>{" "}
+    <section id="home">
+      <div className="bg-black absolute top-0 left-0 p-0 h-full w-full opacity-50 -z-20"></div>{" "}
       <div
-        className="bg-no-repeat bg-fixed bg-cover bg-center h-screen absolute top-0 left-0 w-full -z-20"
+        className="bg-no-repeat bg-fixed bg-cover bg-center h-screen absolute top-0 left-0 w-full -z-30"
         style={{
           backgroundImage: "url(cover-photo.jpeg)",
         }}></div>
@@ -45,6 +45,6 @@ export default function Hero() {
           </ShineButton>
         </div>
       </div>
-    </>
+    </section>
   );
 }

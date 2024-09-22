@@ -8,10 +8,10 @@ export default function SectionCard({
   className?: string;
 }) {
   return (
-    <div
-      className={`flex justify-center items-center p-4 m-8 border border-violet-950 bg ${className}`}
+    <section
+      className={`section flex justify-center items-center p-4 m-8 border border-violet-950 bg ${className}`}
       id={id}>
       {children}
-    </div>
+    </section>
   );
 }
