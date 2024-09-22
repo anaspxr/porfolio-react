@@ -55,13 +55,26 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: Event) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest("#mobileNavbar") && !target.closest("#hamburger")) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div
       className={`fixed top-0 w-full transition-colors duration-500  bg-opacity-95 md:bg-transparent z-50 ${
         isOpen && "bg-black"
       }`}>
       <div
-        className={`flex justify-between items-center lg:px-28 px-12 transition-[padding,background] duration-500  ${
+        className={`flex justify-between items-center lg:px-28 px-4 transition-[padding,background] duration-500  ${
           !isScrolled
             ? "text-white py-6 md:py-10 bg-transparent "
             : "bg-black py-4 md:py-6 bg-opacity-95 text-violet-300"
@@ -71,7 +84,7 @@ export default function Navbar() {
             window.scrollTo({ top: 0, behavior: "smooth" });
             window.history.pushState({}, "", "/");
           }}
-          className="text-3xl font-semibold cursor-pointer">
+          className="text-2xl md:text-3xl font-semibold cursor-pointer">
           ANAS
         </p>
         <ul className="hidden md:flex gap-8 2xl:text-lg  uppercase font-semibold cursor-pointer">
