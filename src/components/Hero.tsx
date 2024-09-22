@@ -29,14 +29,14 @@ export default function Hero() {
           loop
         />
         <div className="flex justify-center items-center gap-4">
-          <ShineButton>
+          <ShineButton className="text-sm md:text-base w-40 py-4">
             <a
               className="inline-flex items-center justify-center h-full w-full"
               href="#about">
               About Me
             </a>{" "}
           </ShineButton>
-          <ShineButton>
+          <ShineButton className="text-sm md:text-base w-40 py-4">
             <a
               className="inline-flex items-center justify-center h-full w-full"
               href="#contact">

@@ -17,7 +17,8 @@ export default function MobileNavbar({
 }) {
   return (
     <ul
-      className={`md:hidden flex gap-2  px-12 text-xl uppercase flex-col  transition-transform duration-300 transform ${
+      id="mobileNavbar"
+      className={`md:hidden flex gap-2  px-4 text-xl uppercase flex-col  transition-transform duration-300 transform ${
         isOpen ? "translate-y-0 flex" : "hidden -translate-y-full"
       } pb-4 `}>
       <li

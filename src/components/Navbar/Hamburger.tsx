@@ -11,6 +11,7 @@ export default function Hamburger({
 }) {
   return (
     <button
+      id="hamburger"
       className={`relative focus:outline-none h-[30px] ${className}`}
       type="button"
       onClick={() => setIsOpen(!isOpen)}
