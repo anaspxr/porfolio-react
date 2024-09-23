@@ -11,18 +11,22 @@ export default function About() {
   const isVisible = useOnScreen(borderRef);
 
   return (
-    <SectionCard id="about" className="p-16">
+    <SectionCard id="about" className="p-12 md:p-20 2xl:p-32">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
         <div>
-          <img
-            src="/images/anas.jpeg"
-            alt="profile"
-            className="w-40 h-40 rounded-full mb-4"
-          />
-          <p className="text-xl text-violet-200 my-2">Anas P</p>
-          <p className="flex items-center gap-2">
-            <FaLaptopCode className="text-violet-400" />
+          <div className="flex flex-col justify-center items-center xs:w-fit xs:items-start gap-2 mb-2">
+            <img
+              src="/images/anas.jpeg"
+              alt="profile"
+              className="w-40 h-40 rounded-full"
+            />
+            <p className="text-2xl text-violet-200 my-2 text-center self-center">
+              Anas P
+            </p>
+          </div>
+          <p className="">
             <span>
+              <FaLaptopCode className="text-violet-400 inline mr-2" />
               MERN stack Intern at{" "}
               <a
                 className="text-violet-200 hover:underline hover:text-violet-300"
@@ -46,11 +50,11 @@ export default function About() {
               isVisible ? "w-32" : "w-10"
             }`}></div>
           <p className="mt-4 text-lg">
-            I am a web developer with a passion for creating beautiful &
-            user-friendly websites and backend services. I have experience in
-            building websites using modern technologies like React, Next.js,
-            Node.js and Express . I am always eager to learn new technologies
-            and improve my skills.
+            Hi, I am Anas!! <br /> I am a web developer with a passion for
+            creating beautiful & user-friendly websites and backend services. I
+            have experience in building websites using modern technologies like
+            React, Next.js, Node.js and Express . I am always eager to learn new
+            technologies and improve my skills.
           </p>
         </div>
       </div>
