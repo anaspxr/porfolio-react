@@ -18,7 +18,7 @@ export default function SectionCard({
       ref={ref}
       className={`${
         isVisible && "show"
-      } hide section flex justify-center items-center p-4 m-8 border border-violet-950 bg ${className}`}
+      } hide section flex justify-center items-center p-4 m-8 rounded-sm bg-zinc-900  ${className}`}
       id={id}>
       {children}
     </section>
