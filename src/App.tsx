@@ -4,6 +4,7 @@ import "./App.css";
 import Hero from "./components/Hero";
 import SectionCard from "./components/SectionCard";
 import { useEffect } from "react";
+import About from "./components/About";
 
 function App() {
   const navHeight = 150;
@@ -44,9 +45,7 @@ function App() {
     <div>
       <Navbar />
       <Hero />
-      <SectionCard id="about" className="h-80">
-        About
-      </SectionCard>
+      <About />
       <SectionCard id="experiences" className="h-80">
         Experiences
       </SectionCard>
